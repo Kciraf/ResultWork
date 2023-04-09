@@ -16,7 +16,7 @@ string[] WordSizeArr(string[] strArr, int wordSize)
     size = NewArrayLength(strArr, wordSize);
     string[] newArr = new string[size];
     int a = 0;
-    if(size > 0)
+    if(size > 0 && strArr != null)
     {
         for (int i = 0; i < strArr.Length && a < size; i++)
         {
@@ -31,3 +31,12 @@ string[] WordSizeArr(string[] strArr, int wordSize)
     return newArr;
 }
 
+int wordLength = 3;
+Console.WriteLine("Введите элементы массива через пробел: ");
+string[] inputArray = Console.ReadLine()!.Split(" ");
+string[] resultArray = WordSizeArr(inputArray, wordLength);
+if(resultArray == null)
+{
+    System.Console.WriteLine("В заданном перечне нет слов с длиной менее или равной " + wordLength + ".");
+}
+else System.Console.WriteLine($"[{String.Join(", ", resultArray)}]");
